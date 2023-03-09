@@ -8,13 +8,11 @@ class Application < Sinatra::Base
 
   get '/names' do
     names = params[:names]
-
     return names
   end
 
   post '/sorted-names' do
     names = params[:names]
-
     return names.split(',').sort.join(',')
   end
 
@@ -26,8 +24,14 @@ class Application < Sinatra::Base
     repeat_count.to_i.times do |x|
       result << string
     end
-
     return result.join("")
-    
+  end
+
+  get '/' do
+    return erb(:index)
+  end
+
+  get '/hello' do
+    return erb(:hello)
   end
 end

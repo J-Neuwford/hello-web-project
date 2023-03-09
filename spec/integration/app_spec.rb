@@ -43,6 +43,28 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to eq("texttexttext")
     end
-
   end
+
+    context "GET /" do
+      it 'contains a h1 title' do
+        response = get('/')
+
+        expect(response.body).to include('<h1>Hello</h1>')
+      end
+
+      it 'contains a div' do
+        response = get('/')
+
+        expect(response.body).to include('<div>')
+      end
+    end
+
+    context 'GET /hello' do
+      it 'has greeting in h1' do
+        response = get('/hello')
+
+        expected_response = '<h1>Hello!</h1>'
+        expect(response.body).to include expected_response
+      end
+    end
 end

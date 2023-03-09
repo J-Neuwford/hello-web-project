@@ -68,7 +68,7 @@ describe Application do
     it 'returns 200 OK' do
       # Assuming the post with id 1 exists.
       response = post('/string-repeater', string: "text")
-"
+
       expect(response.status).to eq(200)
       expect(response.body).to eq("texttexttext")
     end

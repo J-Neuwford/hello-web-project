@@ -69,23 +69,14 @@ describe Application do
 
   let(:app) { Application.new }
 
-  context "GET /names" do
+  context "POST /sorted-names" do
     it 'returns 200 OK' do
       # Assuming the post with id 1 exists.
-      response = get('/names?names=josh, dilan, leo')
+      response = post('/sorted-names/', names: "Joe,Alice,Zoe,Julia,Kiera")
 
       expect(response.status).to eq(200)
-      expect(response.body).to eq('josh, dilan, leo')
+      expect(response.body).to eq('Alice,Joe,Julia,Kieran,Zoe')
     end
-
-    it 'returns 200 OK' do
-      # Assuming the post with id 1 exists.
-      response = get('/names?names=steve, dave, stevedave')
-
-      expect(response.status).to eq(200)
-      expect(response.body).to eq('steve, dave, stevedave')
-    end
-
   end
 end
 ```
